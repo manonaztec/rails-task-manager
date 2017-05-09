@@ -1,0 +1,17 @@
+<h1> TASK MANAGER </h1>
+<p>Listing your missions !</p>
+
+<div>
+<% @tasks.each do |task| %>
+  <ul>
+    <li><%= task.name %></li>
+    <li><%= task.done %></li>
+    <li><%= link_to "Show", task_path(task) %></li>
+    <li><%= link_to "Edit", edit_task_path(task) %></li>
+    <li><%= link_to "Remove", task_path(task), method: :delete, data: { confirm: "Are you sure?" } %></li>
+  </ul>
+<% end %>
+</div>
+
+
+<%= link_to "Create a new task", new_task_path %>
